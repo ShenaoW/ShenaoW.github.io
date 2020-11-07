@@ -1,82 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/2020/11/06/HERCULE%EF%BC%9A%E9%80%9A%E8%BF%87%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0%E7%AE%97%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%85%B3%E8%81%94%E6%97%A5%E5%BF%97%E5%9B%BE%E5%88%86%E6%9E%90%E8%BF%9B%E8%80%8C%E5%AE%9E%E7%8E%B0%E6%94%BB%E5%87%BB%E5%A4%8D%E7%8E%B0/</url>
-    <content><![CDATA[<h3 id="HERCULE：通过社区发现进行关联日志图分析进而实现攻击复现"><a href="#HERCULE：通过社区发现进行关联日志图分析进而实现攻击复现" class="headerlink" title="HERCULE：通过社区发现进行关联日志图分析进而实现攻击复现"></a>HERCULE：通过社区发现进行关联日志图分析进而实现攻击复现</h3><h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><h5 id="社区发现："><a href="#社区发现：" class="headerlink" title="社区发现："></a>社区发现：</h5><p><img src="Snipaste_2020-10-24_20-57-12.png" alt="Snipaste_2020-10-24_20-57-12"></p>
-<p>​         <strong>graph指图，subgraph指子图，社区是一个子图，包含顶点和边。</strong></p>
-<p><img src="Snipaste_2020-10-24_20-57-24.png" alt="Snipaste_2020-10-24_20-57-24"></p>
-<p>​        <strong>内部连接比较紧密的节点子集合对应的子图叫做社区（community），各社区节点集合彼此没有交集的称为非重叠型（disjoint）社区，有交集的称为重叠型（overlapping）社区。</strong></p>
-<h5 id="网络图中包含一个个社区的现象称为社区结构，社区结构是网络中的一个普遍特征。给定一个网络图，找出其社区结构的过程叫做社区发现（community-detection）。"><a href="#网络图中包含一个个社区的现象称为社区结构，社区结构是网络中的一个普遍特征。给定一个网络图，找出其社区结构的过程叫做社区发现（community-detection）。" class="headerlink" title="网络图中包含一个个社区的现象称为社区结构，社区结构是网络中的一个普遍特征。给定一个网络图，找出其社区结构的过程叫做社区发现（community detection）。"></a>网络图中包含一个个社区的现象称为社区结构，社区结构是网络中的一个普遍特征。给定一个网络图，找出其社区结构的过程叫做社区发现（community detection）。</h5><p><strong>监督学习（supervised learning）：</strong></p>
-<p>​    机器学习分为：监督学习，无监督学习，半监督学习（或 Hinton 所说的强化学习）等</p>
-<p>​    根据已有的数据集，知道输入和输出结果之间的关系。根据这种已知的关系，训练得到一个最优的模型。也就是说，在监督学习中训练数据既有特征(feature)又有标签(label)，通过训练，让机器可以自己找到特征和标签之间的联系，在面对只有特征没有标签的数据时，可以判断出标签。</p>
-<p>​    监督学习的分类：回归(Regression）、分类（Classification)  </p>
-<p>​    回归是针对于连续型变量的。对已经存在的点（训练数据）进行分析，拟合出适当的函数模型y=f(x)，这里y就是数据的标签，而对于一个新的自变量x，通过这个函数模型得到标签y</p>
-<p>​    分类是针对离散型的，输出的结果是有限的。分类就是，要通过分析输入的特征向量，对于一个新的向量得到其标签。</p>
-<h4 id="论文内容"><a href="#论文内容" class="headerlink" title="论文内容"></a>论文内容</h4><p>​        概要（Abstract）：针对多过程攻击，目前的单一日志分析无法有效溯源，且专业设备体积庞大。HERCULE基于系统日志的内在联系，构建日志图，利用社区发现算法，完成攻击复现。</p>
-<p>​        </p>
-<p>​        <strong>Section One：</strong>引入（Instruction）</p>
-<p>​                1、严峻现状：攻击的隐蔽性强，潜伏期长</p>
-<p>​                2、常见攻击的一般过程：</p>
-<p>​                        侵入（社工手段：钓鱼邮件，水坑攻击，木马软件，内嵌恶意进程的补丁）</p>
-<p>​                        侦查（密码窃取，漏洞挖掘与提权）</p>
-<p>​                        破坏（窃取机密信息，监听，终止关键性服务）</p>
-<p>​                3、攻击复现的困难性：侵入痕迹分散，逻辑还原困难</p>
-<p>​                4、现有攻击复现方法的缺陷：</p>
-<p>​                            缺乏全局观念，仅对单一日志进行分析</p>
-<p>​                            设备庞大，费用高昂，适用性差</p>
-<p>​                            冗余警告过多，攻击复现过程精力消耗大</p>
-<p>​                5、我们的方案：构建日志图，将其关联并进行权重评估，形成类社交网络并对其进行分析</p>
-<p>​                6、工作原理简介：日志关联图的构建（图一），结点与边的构建，权重分配</p>
-<p>​                7、创新点：</p>
-<p>​                        基于多日志之间的关系进行建模，构建日志图网络</p>
-<p>​                        利用社区发现算法进行分析</p>
-<p>​                        进行了广泛的实践分析，来证明 HERCULE 可行性</p>
-<p>​        <strong>Section Two：</strong>  HERCULE 体系概览</p>
-<p>​                <strong>Part One</strong> （ Figure 2 ）</p>
-<p>​                    一次具体的攻击过程：</p>
-<p>​                        1、V 冒险下载嵌入了恶意进程的 Notepad++</p>
-<p>​                        2、恶意进程启动，通过 TCP 反向链接到远程的 C&amp;C 控制端</p>
-<p>​                        3、C&amp;C 控制端发送命令，搜寻 plan.docx</p>
-<p>​                        4、C&amp;C 控制端发送命令通过FTP下载 NESSUS.exe，进行漏洞扫描，同时通过 FTP                            将 plan.docx 发送回 C&amp;C 控制端</p>
-<p>​                <strong>Part Two</strong>（ Figure 3 ）</p>
-<p>​                        HERCULE 的工作流程：</p>
-<p>​                            Phase 1：</p>
-<p>​                                        Raw Log Parser 进行日志分析（ 网络日志和系统日志两部分 ），整理后的日                                    志同时输入Log Correlation（ Phase 2，以便后续进行日志图的构建 ）和                                    Tainting Module（ 进行检测查询，得到与恶意进程和恶意站点相关联的日志目                                    录，以便 Post Processing Module 对社区进行分类输出</p>
-<p>​                            Phase 2：</p>
-<p>​                                        Log Correlation Module 进行日志图的构建，一方面 Connection Generation                                      在各个节点间构建边（ Section 3.1 利用相同时间戳和相同的过程ID）；另一方                                    面，Weight Assignment 给各个边赋以权重（Section 3.2 利用监督学习）</p>
-<p>​                            Phase 3：</p>
-<p>​                                        Community Detection Module 利用输入的日志图，执行社区发现算法                                     ( Section 3.4 中给出 )，把高度关联的社区输出到 Pose Processing Module ，                                    利用Phase 1 中给出的恶意目录 ，对社区进行恶意和良性的分类，输出复现                                    后的攻击过程</p>
-<p>​        <strong>Section Three：</strong>  HERCULE 体系设计</p>
-<p>​            初步的日志分析：插件，日志中的关键参数</p>
-<p>​            1、连接生成有向图</p>
-<p>​                    用 G = ( V,E,D ) 表示该n维无权重图，V表示节点，E表示边，D表示维度。构成一个                三维矩阵 M（ V * V * D），矩阵对应位置的0,值，表示边的存在情况。E 中元素是由（n+2）                个分量（ i，j，d29)组成的元组。取 29 个表示日志关联的参数，来构建特征向量v</p>
-<p>​            2、权重分配</p>
-<p>​                监督学习（ 逻辑回归，分类算法，SVM，二次规划）</p>
-<p>​            3、DFS 传播</p>
-<p>​                深度优先遍历算法，能够找出任意两节点之间的所有边</p>
-<p>​            4、<strong>社区发现算法</strong>（ 基于 Louvain method ）</p>
-<p>​                &lt;1&gt; 模块度计算：模块度的值在-1和1之间，用于衡量社区内部连接与图中社区之间的连接相                    比的密度程度。</p>
-<p>​                &lt;2&gt; 局部优化模块度：对于每个节点v，该算法将v从其自身的社区中移除，并将其移至v的每                    个相邻w的社区C中。然后，该算法评估模块度的变化并将v放置在模块增益最大的社区中。                    如果最大增益为负，则不移动节点v并将其放置在其原始社区中。对所有节点重复，直到没                    有模块度增加</p>
-<p>​                &lt;3&gt; 将处于同一社区中的所有结点视作一个结点中，建立一个新的图网络。然的权重为两个结                    点内所有原始结点的边权重之和。网络重建完成后，重复&lt;2&gt;的迭代。</p>
-<h4 id="Louvain-算法详解："><a href="#Louvain-算法详解：" class="headerlink" title="Louvain 算法详解："></a>Louvain 算法详解：</h4><p>​    来源：<strong>Fast unfolding of communities in large networks</strong></p>
-<p>​    原理：基于模块度（Modularity）的社区发现算法，能够发现层次性的社区结构，其优化的目标是最大化整个图属性结构（社区网络）的模块度。</p>
-<p>​    <strong>模块度Modularity</strong>：是描述社区内紧密程度的值Q；</p>
-<p><img src="C:\Users\Rainbow\Desktop\HERCULE：用基于关联日志图实现的社区发现算法进行攻击经历复现\Modularity.webp.jpg" alt="Modularity.webp"></p>
-<p>​    <strong>模块度增量delta Q</strong>：即把一个孤立的点放入一个社区C后，计算Modularity的变化，其中计算过程的要点是，首先计算1个点的Modularity，和社区C的Modularity，再计算合并后新社区的Modularity，新社区的Modularity减去前两个Modularity就是delta Q。</p>
-<p>![delta Modularity.webp](C:\Users\Rainbow\Desktop\HERCULE：用基于关联日志图实现的社区发现算法进行攻击经历复现\delta Modularity.webp.jpg)</p>
-<p>​    过程：Louvain算法包括两个阶段，在步骤一，算法扫描数据中的所有节点，针对每个节点遍历该节点的所有邻居节点，衡量把该节点加入其邻居节点所在的社区所带来的模块度的收益。并<strong>选择对应最大收益的邻居节点，加入其所在的社区</strong>。这一过程化重复进行指导每一个节点的社区归属都不在发生变化在步骤二，对步骤1中形成的社区进行折叠，把每个社区折叠成一个单点，<strong>分别计算这些新生成的“社区点”之间的连边权重，以及社区内的所有点之间的连边权重之和</strong>。用于下一轮的步骤1。</p>
-<p>​    时间复杂度：步骤一的每次迭代的时间复杂度为O(N)，N为输入数据中的边的数量。步骤二 的时间复杂度为O(M + N)， M为本轮迭代中点的个数。</p>
-<p>​    优点：该算法的优点主要有3个   <strong>a、易于理解；  b、非监督；   c、计算快速</strong></p>
-<p>​    <strong>Python代码示例</strong></p>
-<p><img src="C:\Users\Rainbow\AppData\Roaming\Typora\typora-user-images\image-20201030194509124.png" alt="image-20201030194509124"></p>
-<p>​        <strong>Section Four：</strong>实验部分</p>
-<p>​        <strong>Section Five：</strong>可改进的部分</p>
-<p>​                1、目前的 HERCULE 方案仅仅基于单个主机进行日志分析，未来可以尝试构建跨主机的日志            图进行分析</p>
-<p>​                2、日志关联受到 29 个既定参数规则的限制，仅仅根据关键词对比进行关联，有些更隐含的关            系无法分析，未来可以通过程序行为的动态分析和学习模块结合的方式来改进</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2020/11/05/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -93,5 +17,51 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>“付费音乐无损下载”</title>
+    <url>/2020/01/11/%E4%BB%98%E8%B4%B9%E9%9F%B3%E4%B9%90%E6%97%A0%E6%8D%9F%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<h1 id="你绝对想不到有多简单系列"><a href="#你绝对想不到有多简单系列" class="headerlink" title="你绝对想不到有多简单系列"></a>你绝对想不到有多简单系列</h1><a id="more"></a>
+<h2 id="话不多说，直接上链接好叭"><a href="#话不多说，直接上链接好叭" class="headerlink" title="话不多说，直接上链接好叭"></a>话不多说，直接上链接好叭</h2><p><a href="http://xiangru.org/mp3/">http://xiangru.org/mp3/</a></p>
+<p><a href="https://music.liuzhijin.cn/">https://music.liuzhijin.cn</a></p>
+<p>随时更新呐~ 2020.1.10</p>
+<p>记得听完歌再走呀！</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1415622001&auto=1&height=66"></iframe>]]></content>
+      <tags>
+        <tag>杂货铺</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>“轻松获取网易云音乐外链”</title>
+    <url>/2020/01/11/%E7%AE%80%E5%8D%95%E8%8E%B7%E5%8F%96%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/</url>
+    <content><![CDATA[<h1 id="有多轻松？试试不就晓得咯"><a href="#有多轻松？试试不就晓得咯" class="headerlink" title="有多轻松？试试不就晓得咯~"></a>有多轻松？试试不就晓得咯~</h1><a id="more"></a>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>Step1:打开网易云音乐，随便找到一首歌，播放，复制网址的ID.</p>
+<p>Step2：将公式中的ID数字替换为获取到的歌曲ID</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>利用到的其实是歌曲的mp3外链地址，只需要首先获取该歌曲的网易云音乐ID,</p>
+<p>之后将该ID套用公式即可。</p>
+<h2 id="实例演示"><a href="#实例演示" class="headerlink" title="实例演示"></a>实例演示</h2><p>例如：谢春花的借我，网易云链接是：</p>
+<p><a href="https://music.163.com/#/song?id=408814900">https://music.163.com/#/song?id=408814900</a></p>
+<p>很明显，ID数字为408814900</p>
+<p>那么，这首歌的真实地址就是：</p>
+<p><a href="http://music.163.com/song/media/outer/url?id=408814900.mp3">http://music.163.com/song/media/outer/url?id=408814900.mp3</a></p>
+<p>这是一份不会失效的音乐外链，可以通过此外链实现歌曲下载，添加QQ空间背景音乐，或者<strong>生成外链播放器</strong>放进博客哟~</p>
+<p>最后的话，万能的外链公式再次附上：</p>
+<p><a href="http://music.163.com/song/media/outer/url?id=ID%E6%95%B0%E5%AD%97.mp3">http://music.163.com/song/media/outer/url?id=ID数字.mp3</a></p>
+<p>（把“ID数字”换成网易云播放页面的id即可。）</p>
+<p><strong>想要生成外链播放器的话，只需要修改下面代码即可</strong></p>
+<p><strong>将下面代码中的ID数字修改成获取到的网易云ID</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; </span><br><span class="line">width&#x3D;330 height&#x3D;86 src&#x3D;&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type&#x3D;2&amp;</span><br><span class="line">id&#x3D;ID数字&amp;auto&#x3D;1&amp;height&#x3D;66&quot;&gt;&lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>
+
+<p>完！我怕是个憨。</p>
+<p>没版权的音乐即使放进外链播放器的生成链接中还是没办法正常播放的。</p>
+<p>我真的是个憨批咯~</p>
+<p>那大家博客中尽量还是找些cover添加好咯，优秀的翻唱歌手还是很多滴……</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" 
+width=330 height=86 src="//music.163.com/outchain/player?type=2&
+id=1399664349&auto=1&height=66"></iframe>
+]]></content>
+      <tags>
+        <tag>杂货铺</tag>
+      </tags>
   </entry>
 </search>
