@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-     ShenaoW&#39;s
+    shuoshuo |  ShenaoW&#39;s
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -52,33 +52,75 @@
   data-scroll-reveal
 >
   <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  shuoshuo
+</h1>
+ 
+
+    </header>
        
     <div class="article-entry" itemprop="articleBody">
        
-  <div id="top"></div>
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-<script>AV.initialize("PqPgFdX018fr1aVY5hzsSsNI-gzGzoHsz", "3QD9vLXdOV4igzOOalSTkhkc");</script>
+  <link rel="stylesheet" href="./shuoshuo.css">
+
+<div id="primary" class="content-area" style="">
+    <main id="main" class="site-main" role="main">
+        <div id="shuoshuo_content">
+            <ul class="cbp_tmtimeline">
+                <li> <span class="shuoshuo_author_img"><img src="https://cdn.jsdelivr.net/gh/cungudafa/cdn/img/custom/cungudafa.jpg" class="avatar avatar-48 zhuan" width="48" height="48"></span>
+                    <a class="cbp_tmlabel" href="">
+                        <p></p>
+                        <p>想要开学，想吃火锅，想吃烧烤，想吃蟹肉煲，想吃鸡脚米线，想喝奶茶~</p>
+                        <iframe frameborder="no" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1338809890&auto=1&height=66"></iframe>
+                        <p></p>
+                        <p class="shuoshuo_time"><i class="fa fa-clock-o"></i>
+                            2020年2月25日
+                        </p>
+                    </a>
+                </li>
+                 <li> <span class="shuoshuo_author_img"><img src="https://cdn.jsdelivr.net/gh/cungudafa/cdn/img/custom/cungudafa.jpg" class="avatar avatar-48 zhuan" width="48" height="48"></span>
+                    <a class="cbp_tmlabel" href="">
+                        <p></p>
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582636990314&di=2421dcd34e1cc519b7f7f9559afbe7b1&imgtype=0&src=http%3A%2F%2Fpics1.baidu.com%2Ffeed%2Fb17eca8065380cd7531865282a19873258828151.jpeg%3Ftoken%3Dce6f76a2b9dc38c02c91acfc2a4bb8d8%26s%3D3C79EF14C510746516F547E003007036" height="200" width="100" />
+                        <p>武汉加油！中国加油！</p>
+                        <p></p>
+                        <p class="shuoshuo_time"><i class="fa fa-clock-o"></i>
+                            2020年2月25日
+                        </p>
+                    </a>
+                </li>
+                <li> <span class="shuoshuo_author_img"><img src="https://cdn.jsdelivr.net/gh/cungudafa/cdn/img/custom/cungudafa.jpg" class="avatar avatar-48 zhuan" width="48" height="48"></span>
+                    <a class="cbp_tmlabel" href="">
+                        <p></p>
+                        <p>第一个说说</p>
+                        <p></p>
+                        <p class="shuoshuo_time"><i class="fa fa-clock-o"></i>
+                            2020年2月25日
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+</div>
 <script type="text/javascript">
-  var time=0
-  var title=""
-  var url=""
-  var query = new AV.Query('Counter');
-  query.notEqualTo('id',0);
-  query.descending('time');
-  query.limit(1000);
-  query.find().then(function (todo) {
-    for (var i=0;i<1000;i++){
-      var result=todo[i].attributes;
-      time=result.time;
-      title=result.title;
-      url=result.url;
-      var content="<p>"+"<font color='#1C1C1C'>"+"【文章"+time+"人观看过】"+"</font>"+"<a href='"+"https://flunggg.cn/"+url+"'>"+title+"</a>"+"</p>";
-      document.getElementById("top").innerHTML+=content
-    }
-  }, function (error) {
-    console.log("error");
-  });
-</script> 
+    (function () {
+        var oldClass = "";
+        var Obj = "";
+        $(".cbp_tmtimeline li").hover(function () {
+            Obj = $(this).children(".shuoshuo_author_img");
+            Obj = Obj.children("img");
+            oldClass = Obj.attr("class");
+            var newClass = oldClass + " zhuan";
+            Obj.attr("class", newClass);
+        }, function () {
+            Obj.attr("class", oldClass);
+        })
+    })
+</script>
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -148,7 +190,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/ShenaoW/ShenaoW.github.io.git/top/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/ShenaoW/ShenaoW.github.io.git/shuoshuo/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -230,31 +272,19 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/archives">归档</a>
-    </li>
-    
-    <li class="nav-item">
       <a class="nav-item-link" href="/categories">分类</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags">花花世界</a>
+      <a class="nav-item-link" href="/tags">标签</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" target="_blank" rel="noopener" href="http://shenyu-vip.lofter.com">摄影</a>
+      <a class="nav-item-link" href="/%5Bobject%20Object%5D">说说</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/top">阅读排行</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C">旅行</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/2019/about">关于我</a>
+      <a class="nav-item-link" href="/about">关于我</a>
     </li>
     
   </ul>
