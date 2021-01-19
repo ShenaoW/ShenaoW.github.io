@@ -64,18 +64,25 @@
        
     <div class="article-entry" itemprop="articleBody">
        
-  <!-- 引用 artitalk -->
-<script type="text/javascript" src="https://unpkg.com/artitalk"></script>
-<body>
-    <!-- 存放说说的容器 -->
-    <div id="artitalk_main"></div>
-    <script>
-    new Artitalk({
-       appId: 'QPzOjY28ScFApRdf5boqSYge-MdYXbMMI', // Your LeanCloud appId
-      appKey: 'G7OvCtKO1TIhydDP3Sbb5OzA'， // Your LeanCloud appKey
-    })
-</script>
-</body>
+  <head>
+  <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+  <body>
+      <script>
+        var img = "https://sm.ms/image/39DnWE86odZta5x"; //说说旁边显示的头像
+        var appID = "QPzOjY28ScFApRdf5boqSYge-MdYXbMMI";
+        var appKEY = "G7OvCtKO1TIhydDP3Sbb5OzA";
+        var per = "5"; //每页显示说说的数量
+        var username = "ShenaoW"; //Leancloud中设置的用户名
+        var placeholder1="只有ShenaoW才能评论哦"; //在编辑说说的输入框中的占位符
+        var placeholder2="没有密码，不能评论！";  //在编辑密码的输入框中的占位符
+        //var lazy = 0; //是否开启懒加载动画
+        //var bgimg = "https://gitee.com/cungudafa/source/raw/master/img/gif/Sitich/Sitich16.gif"; //背景动画
+      </script>
+      <div id="lazy"></div>
+      <div id="artitalk"></div>
+      <script type="text/javascript" src="https://unpkg.com/artitalk"></script>
+  </body>
  
       <!-- reward -->
       
